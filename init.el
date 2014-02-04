@@ -59,4 +59,4 @@
     (re-search-forward regexp nil t)
     (replace-match "" nil nil)))
 
-(global-set-key (kbd "M-?") (lambda () (interactive) (whack-whitespace 1)))
+(global-set-key (kbd "M-<down>") (lambda () (interactive) (whack-whitespace 1)))
