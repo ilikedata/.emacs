@@ -1,5 +1,6 @@
 ;(setq url-proxy-services '(("http" . "10.68.72.18:8888")))
 (require 'package)
+(require 'ess-site)
 (add-to-list 'package-archives
   '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
