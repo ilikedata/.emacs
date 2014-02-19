@@ -3,6 +3,14 @@
 (require 'ess-site)
 (add-to-list 'package-archives
   '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(package-initialize)
+
+(dolist (package `(sml-mode magit smex color-theme find-file-in-project ecb 
+			    fuzzy-match js3-mode js2-refactor expand-region
+			    flymake clojure-mode 
+			    paredit))
+  (if (not (package-installed-p package))
+      (package-install package)))
 
 ; Setting a larger fontsize
 (set-face-attribute 'default nil :height 180)
@@ -61,3 +69,9 @@
     (replace-match "" nil nil)))
 
 (global-set-key (kbd "M-<down>") (lambda () (interactive) (whack-whitespace 1)))
+(global-set-key (kbd "C-x C-;") 'comment-region)
+
+
+(require 'color-theme)
+(color-theme-initialize)
+(color-theme-subtle-hacker)
