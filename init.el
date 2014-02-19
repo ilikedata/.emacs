@@ -5,10 +5,7 @@
   '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
 
-(dolist (package `(sml-mode magit smex color-theme find-file-in-project ecb 
-			    fuzzy-match js3-mode js2-refactor expand-region
-			    flymake clojure-mode 
-			    paredit))
+(dolist (package `(sml-mode magit smex color-theme find-file-in-project ecb fuzzy-match js3-mode js2-refactor expand-region flymake clojure-mode paredit fic-mode hide-comnt js-doc evil-nerd-commenter))
   (if (not (package-installed-p package))
       (package-install package)))
 
