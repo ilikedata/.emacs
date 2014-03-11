@@ -5,9 +5,9 @@
   '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
 
-(dolist (package `(sml-mode magit smex color-theme find-file-in-project ecb fuzzy-match js3-mode js2-refactor expand-region flymake clojure-mode paredit fic-mode hide-comnt js-doc evil-nerd-commenter))
-  (if (not (package-installed-p package))
-      (package-install package)))
+;; (dolist (package `(sml-mode magit smex color-theme find-file-in-project fuzzy-match js3-mode js2-refactor expand-region flymake clojure-mode paredit fic-mode js-doc))
+;;   (if (not (package-installed-p package))
+;;       (package-install package)))
 
 ; Setting a larger fontsize
 (set-face-attribute 'default nil :height 180)
@@ -21,6 +21,9 @@
 
 ;(set-frame-parameter nil 'fullscreen 'fullboth)
 
+; Lets auto refresh files that have been modified elsewhere
+; TODO maybe look at doing this only for css?
+(global-auto-revert-mode t)
 
 ; Lets set the window size
 (add-to-list 'default-frame-alist '(height . 59))
@@ -75,3 +78,12 @@
 
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
 (setq nrepl-hide-special-buffers t)
+(add-hook 'js2-mode-hook 
+	  (lambda ()
+	    (js2-basic-offset 2)
+	    (js2-bounce-indent-p t)
+	    )
+	  )
+
+(add-to-list 'load-path "~/.emacs.d/plugins/soy-mode")
+(load "closure-template-html-mode")
